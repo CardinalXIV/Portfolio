@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benaiah Mark Mo Di — Data Engineer</title>
+<meta name="description" content="Portfolio of Benaiah Mark Mo Di — Data Engineer & Computing Science graduate building data platforms, analytics automation, and responsible GenAI workflows.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐦</text></svg>">
+<style>
+  :root{
+    --bg-0:#eef2f9;
+    --bg-1:#e4ebfb;
+    --blob-a:#7dd3fc;
+    --blob-b:#c4b5fd;
+    --blob-c:#fbcfe8;
+    --blob-d:#bbf7d0;
+    --text-1:#101322;
+    --text-2:#4a5170;
+    --text-3:#6b7290;
+    --glass-bg:rgba(255,255,255,0.42);
+    --glass-bg-strong:rgba(255,255,255,0.62);
+    --glass-border:rgba(255,255,255,0.65);
+    --glass-shadow:0 8px 32px rgba(31,41,74,0.14);
+    --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 0 0 1px rgba(255,255,255,0.25);
+    --accent:#5b6cff;
+    --accent-2:#8b5cf6;
+    --chip-bg:rgba(255,255,255,0.55);
+    --chip-border:rgba(120,130,180,0.28);
+    --nav-bg:rgba(255,255,255,0.55);
+    --card-radius:26px;
+    --tag-text:#3a3f6b;
+  }
+  :root[data-theme="dark"]{
+    --bg-0:#0b0e1a;
+    --bg-1:#12162a;
+    --blob-a:#3b6cff;
+    --blob-b:#8b5cf6;
+    --blob-c:#ec4899;
+    --blob-d:#22d3ee;
+    --text-1:#f1f3fb;
+    --text-2:#c3c8e0;
+    --text-3:#9aa0c0;
+    --glass-bg:rgba(30,34,58,0.45);
+    --glass-bg-strong:rgba(30,34,58,0.65);
+    --glass-border:rgba(255,255,255,0.14);
+    --glass-shadow:0 8px 40px rgba(0,0,0,0.45);
+    --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.06);
+    --accent:#8ab4ff;
+    --accent-2:#c4a1ff;
+    --chip-bg:rgba(255,255,255,0.08);
+    --chip-border:rgba(255,255,255,0.16);
+    --nav-bg:rgba(18,21,40,0.55);
+    --tag-text:#cdd3ff;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg-0:#0b0e1a;
+      --bg-1:#12162a;
+      --blob-a:#3b6cff;
+      --blob-b:#8b5cf6;
+      --blob-c:#ec4899;
+      --blob-d:#22d3ee;
+      --text-1:#f1f3fb;
+      --text-2:#c3c8e0;
+      --text-3:#9aa0c0;
+      --glass-bg:rgba(30,34,58,0.45);
+      --glass-bg-strong:rgba(30,34,58,0.65);
+      --glass-border:rgba(255,255,255,0.14);
+      --glass-shadow:0 8px 40px rgba(0,0,0,0.45);
+      --glass-highlight: inset 0 1px 0 rgba(255,255,255,0.12), inset 0 0 0 1px rgba(255,255,255,0.06);
+      --accent:#8ab4ff;
+      --accent-2:#c4a1ff;
+      --chip-bg:rgba(255,255,255,0.08);
+      --chip-border:rgba(255,255,255,0.16);
+      --nav-bg:rgba(18,21,40,0.55);
+      --tag-text:#cdd3ff;
+    }
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:linear-gradient(180deg,var(--bg-0),var(--bg-1));
+    color:var(--text-1);
+    min-height:100vh;
+    overflow-x:hidden;
+    transition:background 0.4s ease, color 0.4s ease;
+  }
+  .bg-blobs{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    overflow:hidden;
+    filter:blur(70px) saturate(140%);
+    opacity:0.65;
+  }
+  .blob{position:absolute;border-radius:50%;}
+  .blob.a{width:42vw;height:42vw;background:var(--blob-a);top:-10%;left:-10%;animation:float1 22s ease-in-out infinite;}
+  .blob.b{width:38vw;height:38vw;background:var(--blob-b);top:10%;right:-12%;animation:float2 26s ease-in-out infinite;}
+  .blob.c{width:34vw;height:34vw;background:var(--blob-c);bottom:-14%;left:8%;animation:float3 24s ease-in-out infinite;}
+  .blob.d{width:30vw;height:30vw;background:var(--blob-d);bottom:-10%;right:6%;animation:float1 28s ease-in-out infinite reverse;}
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(4%,6%) scale(1.08);}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-5%,4%) scale(0.95);}}
+  @keyframes float3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(3%,-5%) scale(1.05);}}
+
+  .glass{
+    background:var(--glass-bg);
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+    backdrop-filter: blur(24px) saturate(160%);
+    border:1px solid var(--glass-border);
+    border-radius:var(--card-radius);
+    box-shadow:var(--glass-shadow), var(--glass-highlight);
+  }
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 6vw;
+    background:var(--nav-bg);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border-bottom:1px solid var(--glass-border);
+  }
+  .brand{font-weight:700;font-size:17px;letter-spacing:-0.01em;color:var(--text-1);text-decoration:none;display:flex;align-items:center;gap:8px;}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-block;}
+  .nav-links{display:flex;gap:6px;align-items:center;}
+  .nav-links a{
+    color:var(--text-2);text-decoration:none;font-size:14px;font-weight:600;
+    padding:8px 14px;border-radius:100px;transition:background 0.2s,color 0.2s;
+    white-space:nowrap;
+  }
+  .nav-links a:hover{background:var(--chip-bg);color:var(--text-1);}
+  .theme-toggle{
+    width:38px;height:38px;border-radius:50%;border:1px solid var(--chip-border);
+    background:var(--chip-bg);cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:16px;margin-left:6px;flex-shrink:0;
+  }
+  .nav-mobile-toggle{display:none;}
+
+  section{padding:90px 6vw;max-width:1180px;margin:0 auto;}
+  .hero{
+    padding-top:110px;padding-bottom:70px;
+    display:flex;flex-direction:column;align-items:flex-start;gap:22px;
+    min-height:78vh;justify-content:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:7px 16px;border-radius:100px;
+    font-size:13px;font-weight:600;color:var(--tag-text);
+  }
+  .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,0.6);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(52,211,153,0.55);}70%{box-shadow:0 0 0 10px rgba(52,211,153,0);}100%{box-shadow:0 0 0 0 rgba(52,211,153,0);}}
+  h1.hero-title{
+    font-size:clamp(38px,6vw,68px);line-height:1.04;margin:0;font-weight:800;letter-spacing:-0.03em;
+    background:linear-gradient(120deg,var(--text-1),var(--accent) 60%,var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero-sub{font-size:clamp(16px,2vw,20px);color:var(--text-2);max-width:640px;line-height:1.55;margin:0;}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;border-radius:100px;font-weight:700;font-size:14.5px;text-decoration:none;
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    border:1px solid transparent;
+  }
+  .btn:active{transform:scale(0.97);}
+  .btn-primary{
+    background:linear-gradient(120deg,var(--accent),var(--accent-2));
+    color:#fff;box-shadow:0 10px 24px rgba(91,108,255,0.35);
+  }
+  .btn-primary:hover{box-shadow:0 14px 30px rgba(91,108,255,0.45);transform:translateY(-2px);}
+  .btn-ghost{
+    background:var(--chip-bg);color:var(--text-1);border:1px solid var(--chip-border);
+  }
+  .btn-ghost:hover{background:var(--glass-bg-strong);transform:translateY(-2px);}
+  .social-row{display:flex;gap:10px;margin-top:6px;}
+  .social-row a{
+    width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    background:var(--chip-bg);border:1px solid var(--chip-border);color:var(--text-1);text-decoration:none;
+    transition:transform 0.2s,background 0.2s;
+  }
+  .social-row a:hover{transform:translateY(-3px);background:var(--glass-bg-strong);}
+  .social-row svg{width:19px;height:19px;fill:currentColor;}
+
+  .section-head{margin-bottom:38px;}
+  .kicker{font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--accent);margin:0 0 8px;}
+  .section-title{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-0.02em;margin:0;color:var(--text-1);}
+  .section-desc{color:var(--text-2);font-size:15.5px;margin-top:10px;max-width:640px;line-height:1.6;}
+
+  .card{padding:32px;}
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:stretch;}
+  .about-text{font-size:16px;line-height:1.75;color:var(--text-2);}
+  .stat-card{padding:22px;display:flex;flex-direction:column;gap:4px;justify-content:center;}
+  .stat-num{font-size:28px;font-weight:800;color:var(--text-1);}
+  .stat-label{font-size:13px;color:var(--text-3);font-weight:600;}
+  .stats-col{display:flex;flex-direction:column;gap:16px;}
+
+  .timeline{display:flex;flex-direction:column;gap:22px;}
+  .tl-item{padding:28px;display:grid;grid-template-columns:200px 1fr;gap:24px;}
+  .tl-period{font-size:13px;font-weight:700;color:var(--accent);}
+  .tl-role{font-size:19px;font-weight:800;margin:4px 0 2px;color:var(--text-1);}
+  .tl-org{font-size:14.5px;color:var(--text-3);font-weight:600;margin-bottom:10px;}
+  .tl-list{margin:0;padding-left:18px;color:var(--text-2);line-height:1.65;font-size:14.5px;}
+  .tl-list li{margin-bottom:6px;}
+
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+  .proj-card{padding:28px;display:flex;flex-direction:column;gap:14px;transition:transform 0.25s ease, box-shadow 0.25s ease;}
+  .proj-card:hover{transform:translateY(-6px);}
+  .proj-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+  .proj-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;flex-shrink:0;}
+  .proj-title{font-size:18.5px;font-weight:800;margin:0;color:var(--text-1);}
+  .proj-tag{font-size:11.5px;font-weight:700;color:var(--tag-text);background:var(--chip-bg);border:1px solid var(--chip-border);padding:4px 10px;border-radius:100px;white-space:nowrap;}
+  .proj-desc{font-size:14.5px;color:var(--text-2);line-height:1.6;margin:0;flex:1;}
+  .tech-row{display:flex;flex-wrap:wrap;gap:7px;}
+  .tech-chip{font-size:12px;font-weight:600;color:var(--tag-text);background:var(--chip-bg);border:1px solid var(--chip-border);padding:5px 11px;border-radius:100px;}
+  .proj-link{font-size:13.5px;font-weight:700;color:var(--accent);text-decoration:none;display:inline-flex;align-items:center;gap:5px;margin-top:4px;}
+  .proj-link:hover{text-decoration:underline;}
+
+  .mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .mini-card{padding:22px;display:flex;flex-direction:column;gap:10px;}
+  .mini-card .proj-title{font-size:16px;}
+  .mini-card .proj-desc{font-size:13.5px;}
+
+  .skills-wrap{display:flex;flex-direction:column;gap:22px;}
+  .skill-group{padding:26px;}
+  .skill-group-title{font-size:14px;font-weight:800;color:var(--text-1);margin:0 0 14px;display:flex;align-items:center;gap:8px;}
+  .skill-chips{display:flex;flex-wrap:wrap;gap:9px;}
+  .skill-chip{font-size:13.5px;font-weight:600;color:var(--tag-text);background:var(--chip-bg);border:1px solid var(--chip-border);padding:7px 14px;border-radius:100px;}
+
+  .awards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+  .award-card{padding:24px;display:flex;gap:14px;align-items:flex-start;}
+  .award-emoji{font-size:26px;flex-shrink:0;}
+  .award-title{font-weight:800;font-size:15px;color:var(--text-1);margin:0 0 4px;}
+  .award-sub{font-size:13px;color:var(--text-3);margin:0;line-height:1.5;}
+
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  .edu-card{padding:26px;}
+  .edu-school{font-weight:800;font-size:16.5px;color:var(--text-1);margin:0 0 4px;}
+  .edu-degree{font-size:14px;color:var(--text-2);margin:0 0 10px;}
+  .edu-meta{font-size:12.5px;color:var(--text-3);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+
+  .contact-card{padding:48px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;}
+  .contact-title{font-size:clamp(24px,3vw,32px);font-weight:800;margin:0;color:var(--text-1);}
+  .contact-sub{color:var(--text-2);font-size:15px;max-width:480px;line-height:1.6;margin:0;}
+  .contact-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:6px;}
+
+  footer{text-align:center;padding:34px 6vw 50px;color:var(--text-3);font-size:13px;}
+  footer a{color:var(--text-3);}
+
+  ::selection{background:var(--accent);color:#fff;}
+
+  @media (max-width:880px){
+    section{padding:64px 6vw;}
+    .about-grid{grid-template-columns:1fr;}
+    .proj-grid{grid-template-columns:1fr;}
+    .mini-grid{grid-template-columns:1fr 1fr;}
+    .awards-grid{grid-template-columns:1fr;}
+    .edu-grid{grid-template-columns:1fr;}
+    .tl-item{grid-template-columns:1fr;gap:8px;}
+    .nav-links{
+      position:fixed;top:66px;left:0;right:0;
+      flex-direction:column;align-items:stretch;
+      background:var(--nav-bg);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);
+      border-bottom:1px solid var(--glass-border);
+      padding:10px 6vw 18px;gap:2px;
+      transform:translateY(-130%);opacity:0;pointer-events:none;
+      transition:transform 0.3s ease, opacity 0.3s ease;
+    }
+    .nav-links.open{
+      transform:translateY(0);opacity:1;pointer-events:auto;
+      background:var(--glass-bg-strong);
+      -webkit-backdrop-filter:blur(36px) saturate(180%);
+      backdrop-filter:blur(36px) saturate(180%);
+      box-shadow:var(--glass-shadow);
+    }
+    .nav-links a{padding:12px 10px;}
+    .nav-mobile-toggle{
+      display:flex;width:38px;height:38px;border-radius:12px;border:1px solid var(--chip-border);
+      background:var(--chip-bg);align-items:center;justify-content:center;cursor:pointer;font-size:18px;
+    }
+    .nav-links-wrap{display:flex;align-items:center;gap:6px;}
+  }
+  @media (max-width:600px){
+    .mini-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-blobs" aria-hidden="true">
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+  <div class="blob c"></div>
+  <div class="blob d"></div>
+</div>
+
+<nav>
+  <a href="#top" class="brand"><span class="dot"></span>Benaiah Mark Mo Di</a>
+  <div class="nav-links-wrap">
+    <div class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#awards">Awards</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌙</button>
+    <button class="nav-mobile-toggle" id="navMobileToggle" aria-label="Open menu">☰</button>
+  </div>
+</nav>
+
+<div id="top"></div>
+<section class="hero">
+  <span class="eyebrow glass"><span class="pulse"></span>Open to Data Engineering &amp; Analytics roles</span>
+  <h1 class="hero-title">Data Engineer building reliable<br>data &amp; AI platforms.</h1>
+  <p class="hero-sub">Computing Science graduate with hands-on experience across Databricks, CI/CD pipelines, containerised systems, and responsible GenAI workflows in a public-sector environment — now exploring opportunities in financial services technology.</p>
+  <div class="hero-actions">
+    <a class="btn btn-primary" href="#projects">View Projects</a>
+    <a class="btn btn-ghost" href="./assets/Benaiah_Mark_Mo_Di_Resume.pdf" download>⬇ Download Resume</a>
+    <a class="btn btn-ghost" href="#contact">Get in Touch</a>
+  </div>
+  <div class="social-row">
+    <a href="https://github.com/CardinalXIV" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 5.02 3.26 9.28 7.78 10.78.57.1.78-.25.78-.55v-2c-3.16.69-3.83-1.36-3.83-1.36-.52-1.3-1.26-1.66-1.26-1.66-1.03-.7.08-.69.08-.69 1.14.08 1.74 1.17 1.74 1.17 1.01 1.74 2.65 1.24 3.3.95.1-.73.4-1.24.72-1.53-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.24 1.17-3.03-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.14 1.16a10.9 10.9 0 0 1 5.72 0c2.18-1.47 3.14-1.16 3.14-1.16.62 1.59.23 2.76.11 3.05.73.79 1.17 1.79 1.17 3.03 0 4.35-2.66 5.31-5.19 5.59.41.35.77 1.04.77 2.1v3.11c0 .3.2.66.79.55A11.53 11.53 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5z"/></svg>
+    </a>
+    <a href="https://linkedin.com/in/benaiahmarkdi" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47v6.27zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+    </a>
+    <a href="mailto:torchic.modi@gmail.com" title="Email" aria-label="Email">
+      <svg viewBox="0 0 24 24"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13zm2.2.3 7.8 6.1 7.8-6.1H4.2zM20 7.3l-7.4 5.8a1 1 0 0 1-1.2 0L4 7.3V18.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.3z"/></svg>
+    </a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="section-head">
+    <p class="kicker">About</p>
+    <h2 class="section-title">A bit about me</h2>
+  </div>
+  <div class="about-grid">
+    <div class="glass card about-text">
+      <p>I'm a Computing Science graduate (Singapore Institute of Technology, in partnership with the University of Glasgow) and a Data Engineer currently working in the Internal Audit function at GovTech Singapore. I build data applications, analytics automation, and responsible GenAI workflows in a public-sector environment.</p>
+      <p>My day-to-day spans Python, Databricks, CI/CD, data pipelines, and containerised systems — and I'm especially interested in building reliable technology and data platforms for financial services. Outside of work, I like exploring how LLMs and distributed systems can be combined into practical, well-engineered tools.</p>
+    </div>
+    <div class="stats-col">
+      <div class="glass stat-card">
+        <div class="stat-num">4.64 / 5.0</div>
+        <div class="stat-label">GPA — BSc Computing Science</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">Projects shipped — professional &amp; academic</div>
+      </div>
+      <div class="glass stat-card">
+        <div class="stat-num">2×</div>
+        <div class="stat-label">Hackathon / competition champion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-head">
+    <p class="kicker">Experience</p>
+    <h2 class="section-title">Where I've worked</h2>
+  </div>
+  <div class="timeline">
+    <div class="glass tl-item">
+      <div>
+        <div class="tl-period">Jun 2026 — Present</div>
+        <div class="tl-role">Data Engineer</div>
+        <div class="tl-org">GovTech Singapore · Internal Audit</div>
+      </div>
+      <ul class="tl-list">
+        <li>Develop Databricks applications and technical proof-of-concepts that automate audit workflows and improve transparency of audit information for business users.</li>
+        <li>Built an audit milestone tracking solution using Medallion Architecture to structure data flows across processing layers, with Databricks Asset Bundles integrated with GitLab for version-controlled development and deployment.</li>
+        <li>Developing a Vite application that enables users to upload files to Databricks Volumes, trigger processing jobs, and access analytics dashboards; deployed on Northflank.</li>
+      </ul>
+    </div>
+    <div class="glass tl-item">
+      <div>
+        <div class="tl-period">Sep 2025 — Apr 2026</div>
+        <div class="tl-role">Data Scientist Intern</div>
+        <div class="tl-org">GovTech Singapore · Internal Audit</div>
+      </div>
+      <ul class="tl-list">
+        <li>Built and maintained an end-to-end analytics pipeline to automate audit evidence processing and improve consistency for internal stakeholders.</li>
+        <li>Developed <strong>docXtract</strong>, a modular Python tool that reduces manual extraction of embedded audit evidence from Microsoft Office and Outlook files.</li>
+        <li>Implemented iterative nested-file extraction, provenance tracking, and binary/content-aware deduplication, improving traceability and consistency of extracted evidence.</li>
+        <li>Added support for OOXML, legacy OLE, and MSG files with file-type identification and password-protection detection across nested documents.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="section-head">
+    <p class="kicker">Projects</p>
+    <h2 class="section-title">Featured work</h2>
+    <p class="section-desc">A mix of professional work at GovTech and personal exploration in ML, LLMs, and distributed systems.</p>
+  </div>
+  <div class="proj-grid">
+
+    <div class="glass proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">🧠</div>
+        <span class="proj-tag">ML / LLM Service</span>
+      </div>
+      <h3 class="proj-title">Distributed Needy Fund Application System (DNFAS)</h3>
+      <p class="proj-desc">An experimental ML/LLM microservice for automated financial-aid application summarisation and 1–5 priority scoring using financial and employment indicators. Integrated NVIDIA NIM and Llama 3.1 8B Instruct into a containerised gRPC architecture, deployed with Docker and Kubernetes across a multi-service microservice setup with horizontal pod autoscaling. Evaluation of LLM response reliability highlighted prompt refinement as key to more trustworthy decision-support outputs.</p>
+      <div class="tech-row">
+        <span class="tech-chip">NVIDIA NIM</span>
+        <span class="tech-chip">Llama 3.1 8B</span>
+        <span class="tech-chip">gRPC</span>
+        <span class="tech-chip">Docker</span>
+        <span class="tech-chip">Kubernetes</span>
+      </div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/DNFAS" target="_blank" rel="noopener">View on GitHub →</a>
+    </div>
+
+    <div class="glass proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">📄</div>
+        <span class="proj-tag">GovTech · Internal Audit</span>
+      </div>
+      <h3 class="proj-title">docXtract</h3>
+      <p class="proj-desc">A modular Python tool that reduces manual extraction of embedded audit evidence from Microsoft Office and Outlook files. Implements iterative nested-file extraction, provenance tracking, and binary/content-aware deduplication, with support for OOXML, legacy OLE, and MSG formats — including file-type identification and password-protection detection across nested documents.</p>
+      <div class="tech-row">
+        <span class="tech-chip">Python</span>
+        <span class="tech-chip">OOXML / OLE</span>
+        <span class="tech-chip">Data Provenance</span>
+      </div>
+      <span class="proj-link" style="color:var(--text-3);">Internal GovTech project — not public</span>
+    </div>
+
+    <div class="glass proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">🗂️</div>
+        <span class="proj-tag">GovTech · Internal Audit</span>
+      </div>
+      <h3 class="proj-title">Audit Milestone Tracking Solution</h3>
+      <p class="proj-desc">A Databricks-based tracking solution built on Medallion Architecture to structure data flows across bronze/silver/gold processing layers, improving transparency of audit information for business users. Uses Databricks Asset Bundles integrated with GitLab CI/CD for version-controlled development and deployment.</p>
+      <div class="tech-row">
+        <span class="tech-chip">Databricks</span>
+        <span class="tech-chip">Medallion Architecture</span>
+        <span class="tech-chip">GitLab CI/CD</span>
+      </div>
+      <span class="proj-link" style="color:var(--text-3);">Internal GovTech project — not public</span>
+    </div>
+
+    <div class="glass proj-card">
+      <div class="proj-top">
+        <div class="proj-icon">⚡</div>
+        <span class="proj-tag">GovTech · Internal Audit</span>
+      </div>
+      <h3 class="proj-title">Databricks Volumes Upload &amp; Dashboard App</h3>
+      <p class="proj-desc">A Vite application that lets users upload files directly to Databricks Volumes, trigger processing jobs, and access analytics dashboards — deployed on Northflank. Streamlines the handoff between raw evidence upload and automated processing for audit teams.</p>
+      <div class="tech-row">
+        <span class="tech-chip">Vite</span>
+        <span class="tech-chip">Databricks Volumes</span>
+        <span class="tech-chip">Northflank</span>
+      </div>
+      <span class="proj-link" style="color:var(--text-3);">Internal GovTech project — not public</span>
+    </div>
+
+  </div>
+
+  <div class="section-head" style="margin-top:56px;">
+    <p class="kicker">Academic &amp; Personal</p>
+    <h2 class="section-title">Coursework &amp; side projects</h2>
+    <p class="section-desc">Smaller builds from university modules and personal exploration — all public on GitHub.</p>
+  </div>
+  <div class="mini-grid">
+
+    <div class="glass mini-card">
+      <div class="proj-top"><div class="proj-icon" style="width:36px;height:36px;font-size:16px;">🖥️</div></div>
+      <h3 class="proj-title">RTOS on Raspberry Pi</h3>
+      <p class="proj-desc">Patched a Linux kernel with PREEMPT_RT to convert a general-purpose OS into a real-time OS on a Raspberry Pi 4, benchmarking Hard/Soft/Firm real-time task performance against peer research.</p>
+      <div class="tech-row"><span class="tech-chip">Linux Kernel</span><span class="tech-chip">RTOS</span></div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/OS" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+
+    <div class="glass mini-card">
+      <div class="proj-top"><div class="proj-icon" style="width:36px;height:36px;font-size:16px;">⚙️</div></div>
+      <h3 class="proj-title">ASM vs. Compiled C Benchmark</h3>
+      <p class="proj-desc">Compared hand-written ARM assembly against GCC-compiled C for a prime-testing algorithm on a Raspberry Pi 4, measuring runtime to explore low-level optimisation trade-offs.</p>
+      <div class="tech-row"><span class="tech-chip">ARM Assembly</span><span class="tech-chip">C</span></div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/CompArch" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+
+    <div class="glass mini-card">
+      <div class="proj-top"><div class="proj-icon" style="width:36px;height:36px;font-size:16px;">🔐</div></div>
+      <h3 class="proj-title">Steganography Toolkit</h3>
+      <p class="proj-desc">A Python tool to hide payloads (text/hidden messages) inside cover media — with support across BMP, MP3, MP4, and AVI file formats.</p>
+      <div class="tech-row"><span class="tech-chip">Python</span><span class="tech-chip">Cybersecurity</span></div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/Steganography" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+
+    <div class="glass mini-card">
+      <div class="proj-top"><div class="proj-icon" style="width:36px;height:36px;font-size:16px;">✈️</div></div>
+      <h3 class="proj-title">Flight Route Calculator</h3>
+      <p class="proj-desc">Applies Dijkstra's algorithm and Prim's MST alongside a custom min-heap to solve shortest-path and route-optimisation problems for flight networks.</p>
+      <div class="tech-row"><span class="tech-chip">Python</span><span class="tech-chip">Graph Algorithms</span></div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/DSA" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+
+    <div class="glass mini-card">
+      <div class="proj-top"><div class="proj-icon" style="width:36px;height:36px;font-size:16px;">🏦</div></div>
+      <h3 class="proj-title">Banking App with 2FA</h3>
+      <p class="proj-desc">A Java banking application with two-factor authentication and QR-code generation, integrating Insurance, Security, and FX modules alongside teammates' Branch, Loan, and Credit Card components.</p>
+      <div class="tech-row"><span class="tech-chip">Java</span><span class="tech-chip">Gradle</span></div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/OOP" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+
+    <div class="glass mini-card">
+      <div class="proj-top"><div class="proj-icon" style="width:36px;height:36px;font-size:16px;">🎮</div></div>
+      <h3 class="proj-title">Tic-Tac-Toe (GTK4)</h3>
+      <p class="proj-desc">A desktop Tic-Tac-Toe game in C with a GTK4 interface, offering 5 modes: PvP plus Easy, Medium, Hard, and Impossible AI difficulties.</p>
+      <div class="tech-row"><span class="tech-chip">C</span><span class="tech-chip">GTK4</span></div>
+      <a class="proj-link" href="https://github.com/CardinalXIV/TicTacToe" target="_blank" rel="noopener">GitHub →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="skills">
+  <div class="section-head">
+    <p class="kicker">Skills</p>
+    <h2 class="section-title">Technical toolkit</h2>
+  </div>
+  <div class="skills-wrap">
+    <div class="glass skill-group">
+      <p class="skill-group-title">🧮 Languages &amp; Data</p>
+      <div class="skill-chips">
+        <span class="skill-chip">Python</span><span class="skill-chip">Java</span><span class="skill-chip">C</span>
+        <span class="skill-chip">SQL</span><span class="skill-chip">R</span><span class="skill-chip">Databricks</span>
+        <span class="skill-chip">TensorFlow</span><span class="skill-chip">Machine Learning</span><span class="skill-chip">LLM Integration</span>
+      </div>
+    </div>
+    <div class="glass skill-group">
+      <p class="skill-group-title">🛠️ Data Engineering &amp; DevOps</p>
+      <div class="skill-chips">
+        <span class="skill-chip">Medallion Architecture</span><span class="skill-chip">Databricks Asset Bundles</span>
+        <span class="skill-chip">GitLab CI/CD</span><span class="skill-chip">Git</span>
+      </div>
+    </div>
+    <div class="glass skill-group">
+      <p class="skill-group-title">☁️ Cloud &amp; Distributed Systems</p>
+      <div class="skill-chips">
+        <span class="skill-chip">Docker</span><span class="skill-chip">Kubernetes</span><span class="skill-chip">gRPC</span>
+        <span class="skill-chip">Vite</span><span class="skill-chip">Northflank</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="awards">
+  <div class="section-head">
+    <p class="kicker">Recognition</p>
+    <h2 class="section-title">Awards &amp; achievements</h2>
+  </div>
+  <div class="awards-grid">
+    <div class="glass award-card">
+      <div class="award-emoji">🏆</div>
+      <div>
+        <p class="award-title">HackRift Champion</p>
+        <p class="award-sub">GovTech × NCS × SIT — Dec 2024<br>ScamSlayer POC</p>
+      </div>
+    </div>
+    <div class="glass award-card">
+      <div class="award-emoji">🥇</div>
+      <div>
+        <p class="award-title">Dell Tanzu Champion</p>
+        <p class="award-sub">Apr 2025<br>Grub microservices project</p>
+      </div>
+    </div>
+    <div class="glass award-card">
+      <div class="award-emoji">🎓</div>
+      <div>
+        <p class="award-title">Provost List</p>
+        <p class="award-sub">AY2024/25<br>Singapore Institute of Technology</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="section-head">
+    <p class="kicker">Education</p>
+    <h2 class="section-title">Academic background</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="glass edu-card">
+      <p class="edu-school">Singapore Institute of Technology · University of Glasgow</p>
+      <p class="edu-degree">BSc. Computing Science — Relevant modules: Machine Learning, Data Analytics, Cloud Computing</p>
+      <div class="edu-meta"><span>Aug 2023 — Apr 2026</span><span>GPA: 4.64 / 5.0</span></div>
+    </div>
+    <div class="glass edu-card">
+      <p class="edu-school">Ngee Ann Polytechnic</p>
+      <p class="edu-degree">Diploma in Financial Informatics — Specialisation in Financial Analytics</p>
+      <div class="edu-meta"><span>Apr 2018 — Apr 2021</span><span>GPA: 3.48 / 4.0</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="glass contact-card">
+    <p class="contact-title">Let's work together</p>
+    <p class="contact-sub">I'm actively looking for Data Engineering / Data &amp; Analytics roles, especially in financial services technology. Feel free to reach out — I'd love to chat.</p>
+    <div class="contact-row">
+      <a class="btn btn-primary" href="mailto:torchic.modi@gmail.com">✉ Email Me</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/benaiahmarkdi" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/CardinalXIV" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn btn-ghost" href="./assets/Benaiah_Mark_Mo_Di_Resume.pdf" download>Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© <span id="year"></span> Benaiah Mark Mo Di. Built with HTML, CSS &amp; a bit of glass.</p>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Theme toggle
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  function applyIcon(){
+    const explicit = root.getAttribute('data-theme');
+    const isDark = explicit ? explicit === 'dark' : prefersDark;
+    themeToggle.textContent = isDark ? '☀️' : '🌙';
+  }
+  applyIcon();
+  themeToggle.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    const currentlyDark = current ? current === 'dark' : prefersDark;
+    root.setAttribute('data-theme', currentlyDark ? 'light' : 'dark');
+    applyIcon();
+  });
+
+  // Mobile nav toggle
+  const navLinks = document.getElementById('navLinks');
+  const navMobileToggle = document.getElementById('navMobileToggle');
+  navMobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
